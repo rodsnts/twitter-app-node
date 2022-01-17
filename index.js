@@ -21,9 +21,9 @@ const bearerToken =
 
 const rulesUrl = `${twitterUrl}stream/rules`;
 
-const streamUrl = `${twitterUrl}stream?tweet.fields=attachments,created_at,entities&expansions=author_id,attachments.media_keys&user.fields=username,profile_image_url&media.fields=preview_image_url`;
+const streamUrl = `${twitterUrl}stream?tweet.fields=created_at,entities&expansions=author_id,attachments.media_keys&user.fields=username,profile_image_url&media.fields=preview_image_url`;
 
-const tweetsUrl = `${twitterUrl}recent?query=from:ItsTradeNation&tweet.fields=attachments,created_at,entities&expansions=author_id,attachments.media_keys&user.fields=created_at,profile_image_url&media.fields=preview_image_url`;
+const tweetsUrl = `${twitterUrl}recent?query=from:ItsTradeNation&tweet.fields=created_at,entities&expansions=author_id,attachments.media_keys&user.fields=created_at,profile_image_url&media.fields=preview_image_url`;
 
 app.get("/tweets", cors({ origin: "*" }), (req, res) => {
   axios({
