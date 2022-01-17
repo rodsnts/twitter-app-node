@@ -23,7 +23,7 @@ const streamUrl =
   "https://api.twitter.com/2/tweets/search/stream?tweet.fields=created_at&expansions=author_id&user.fields=username";
 
 const tweetsUrl =
-  "https://api.twitter.com/2/tweets/search/recent?query=from:ItsTradeNation&tweet.fields=created_at&expansions=author_id&user.fields=created_at";
+  "https://api.twitter.com/2/tweets/search/recent?query=from:rod_snts&tweet.fields=created_at&expansions=author_id&user.fields=created_at";
 
 app.get("/tweets", cors({ origin: "*" }), (req, res) => {
   axios({
