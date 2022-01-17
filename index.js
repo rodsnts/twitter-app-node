@@ -1,5 +1,6 @@
 const http = require("http");
 const express = require("express");
+const cors = require("cors");
 const { Server } = require("socket.io");
 const axios = require("axios");
 
@@ -24,7 +25,7 @@ const streamUrl =
 const tweetsUrl =
   "https://api.twitter.com/2/tweets/search/recent?query=from:ItsTradeNation&tweet.fields=created_at&expansions=author_id&user.fields=created_at";
 
-app.get("/tweets", (req, res) => {
+app.get("/tweets", cors({ origin: "*" }), (req, res) => {
   axios({
     method: "get",
     url: tweetsUrl,
