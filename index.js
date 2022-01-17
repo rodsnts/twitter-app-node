@@ -14,16 +14,16 @@ const io = new Server(server, {
 
 const port = process.env.PORT || 4000;
 
+const twitterUrl = "https://api.twitter.com/2/tweets/search/";
+
 const bearerToken =
   "AAAAAAAAAAAAAAAAAAAAAMdFYAEAAAAAMwcQqDEXKa5Y0J9g9%2FDo43YT1HI%3D4nbxP16XvJF0APPdVzKPodCQbNFuP0RID3mWUX9GzFsW5x9C4i";
 
-const rulesUrl = "https://api.twitter.com/2/tweets/search/stream/rules";
+const rulesUrl = `${twitterUrl}stream/rules`;
 
-const streamUrl =
-  "https://api.twitter.com/2/tweets/search/stream?tweet.fields=created_at&expansions=author_id,attachments.media_keys&user.fields=username&media.fields=preview_image_url";
+const streamUrl = `${twitterUrl}stream?tweet.fields=created_at&expansions=author_id,attachments.media_keys&user.fields=username,profile_image_url`;
 
-const tweetsUrl =
-  "https://api.twitter.com/2/tweets/search/recent?query=from:ItsTradeNation&tweet.fields=created_at&expansions=author_id,attachments.media_keys&user.fields=created_at&media.fields=preview_image_url";
+const tweetsUrl = `${twitterUrl}recent?query=from:ItsTradeNation&tweet.fields=created_at&expansions=author_id&user.fields=created_at,profile_image_url`;
 
 app.get("/tweets", cors({ origin: "*" }), (req, res) => {
   axios({
