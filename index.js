@@ -21,7 +21,20 @@ const rulesUrl = "https://api.twitter.com/2/tweets/search/stream/rules";
 const streamUrl =
   "https://api.twitter.com/2/tweets/search/stream?tweet.fields=created_at&expansions=author_id&user.fields=username";
 
-app.get("/", (req, res) => {});
+const tweetsUrl =
+  "https://api.twitter.com/2/tweets/search/recent?query=from:ItsTradeNation&tweet.fields=created_at&expansions=author_id&user.fields=created_at";
+
+app.get("/tweets", (req, res) => {
+  axios({
+    method: "get",
+    url: tweetsUrl,
+    headers: {
+      Authorization: `Bearer ${bearerToken}`,
+    },
+  }).then((res) => {
+    console.log(res.data);
+  });
+});
 
 async function listRules() {
   axios({
