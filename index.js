@@ -31,8 +31,8 @@ app.get("/tweets", (req, res) => {
     headers: {
       Authorization: `Bearer ${bearerToken}`,
     },
-  }).then((res) => {
-    console.log(res.data);
+  }).then((data) => {
+    res.send(data.data);
   });
 });
 
