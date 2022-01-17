@@ -11,7 +11,7 @@ const io = new Server(server, {
   },
 });
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 const bearerToken =
   "AAAAAAAAAAAAAAAAAAAAAMdFYAEAAAAAMwcQqDEXKa5Y0J9g9%2FDo43YT1HI%3D4nbxP16XvJF0APPdVzKPodCQbNFuP0RID3mWUX9GzFsW5x9C4i";
